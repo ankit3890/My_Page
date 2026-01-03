@@ -9,6 +9,10 @@ export interface ProjectDetail {
   year: string;
   type: "image" | "video";
   github?: string;
+  demoLink?: string;
+  demoLabel?: string;
+  previewImages?: string[];
+  heroVideo?: string;
 }
 
 export const galleryItems: ProjectDetail[] = [
@@ -29,6 +33,7 @@ export const galleryItems: ProjectDetail[] = [
     category: "Unreal Engine",
     src: "/images/renders/portal.jpg",
     type: "image",
+    heroVideo: "/images/renders/potal.mov",
     description: "A fantasy portal opening in a war-torn landscape.",
     idea: "Inspired by high-fantasy lore, this scene depicts a gateway to another dimension opening amidst the chaos of a battlefield. The focus was on particle effects for the portal and volumetric fog to create atmosphere.",
     software: ["Unreal Engine 5", "Niagara VFX", "Blender"],
@@ -55,7 +60,14 @@ export const galleryItems: ProjectDetail[] = [
     idea: "The goal was to centralize the disparate systems students use daily. By combining academic tracking with social features, it boosts engagement and ensures students never miss critical updates.",
     software: ["React", "Node.js", "MongoDB", "Socket.io"],
     year: "2024",
-    github: "#"
+    github: "https://github.com/ankit3890/college-connect",
+    demoLink: "https://college-connect-teal.vercel.app/dashboard",
+    demoLabel: "Live Demo",
+    previewImages: [
+      "/images/college-hub/preview-1.png",
+      "/images/college-hub/preview-2.png",
+      "/images/college-hub/preview-3.png"
+    ]
   },
   {
     id: "ai-assistant",
@@ -67,7 +79,14 @@ export const galleryItems: ProjectDetail[] = [
     idea: "Designed to solve the friction of alt-tabbing to a browser for AI help. The floating window keeps the assistant context-aware and accessible, while the integrated Kanban board helps artists track their creative pipeline alongside their tools.",
     software: ["Electron", "React", "OpenAI API", "LocalDB"],
     year: "2024",
-    github: "#"
+    github: "https://github.com/ankit3890/AI-Floating-Assistant",
+    demoLink: "https://drive.google.com/file/d/1jmpThW9nmfjbsv0Lpx6SFMOtRvN3B-Lo/view?usp=sharing",
+    demoLabel: "Download App",
+    previewImages: [
+      "/images/ai-assistant/preview-1.png",
+      "/images/ai-assistant/preview-2.png",
+      "/images/ai-assistant/preview-3.png"
+    ]
   },
   {
     id: "prompt-gen",
@@ -79,6 +98,13 @@ export const galleryItems: ProjectDetail[] = [
     idea: "Prompt engineering can be time-consuming. This extension simplifies it by providing templates and optimizers directly in the browser, helping users get better results from their AI models faster.",
     software: ["JavaScript", "Chrome Extensions API", "NLP"],
     year: "2023",
-    github: "#"
+    github: "https://github.com/ankit3890/Prompt-Gen-Extension",
+    demoLink: "https://drive.google.com/drive/folders/1hQ4zSfIvg8nydejjTJRlgkvSdx6ajP8N?usp=sharing",
+    demoLabel: "Get Extension",
+    previewImages: [
+      "/images/prompt-gen/preview-1.png",
+      "/images/prompt-gen/preview-2.png",
+      "/images/prompt-gen/preview-3.png"
+    ]
   }
 ];

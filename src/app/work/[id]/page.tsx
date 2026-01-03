@@ -23,13 +23,24 @@ export default function ProjectPage() {
       
       {/* Hero Image */}
       <section className="relative w-full h-[70vh] md:h-[80vh] bg-neutral-900">
-        <Image 
-          src={project.src} 
-          alt={project.title} 
-          fill 
-          className="object-cover" 
-          priority
-        />
+        {project.heroVideo ? (
+          <video 
+            src={project.heroVideo} 
+            autoPlay 
+            muted 
+            loop 
+            playsInline 
+            className="object-cover w-full h-full"
+          />
+        ) : (
+          <Image 
+            src={project.src} 
+            alt={project.title} 
+            fill 
+            className="object-cover" 
+            priority
+          />
+        )}
         <div className="absolute inset-0 bg-gradient-to-t from-black via-black/50 to-transparent" />
         
         <div className="absolute bottom-0 left-0 right-0 p-8 md:p-16 max-w-7xl mx-auto">
@@ -96,6 +107,22 @@ export default function ProjectPage() {
                   </Link>
                 </div>
               )}
+
+              {project.demoLink && (
+                <div>
+                   <h3 className="text-lg font-bold mb-4 flex items-center">
+                    <ExternalLink size={20} className="mr-2 text-neon-cyan" /> 
+                    {project.demoLabel?.includes("Download") ? "Download" : "Live Demo"}
+                  </h3>
+                  <Link 
+                    href={project.demoLink} 
+                    target="_blank"
+                    className="flex items-center justify-center w-full px-4 py-3 bg-transparent border border-neon-cyan text-neon-cyan font-bold rounded-lg hover:bg-neon-cyan/10 transition-colors"
+                  >
+                    <ExternalLink size={18} className="mr-2" /> {project.demoLabel || "View Live"}
+                  </Link>
+                </div>
+              )}
             </motion.div>
           </div>
 
@@ -144,6 +171,33 @@ export default function ProjectPage() {
                  {project.description}
                </p>
             </motion.div>
+
+            {project.previewImages && project.previewImages.length > 0 && (
+               <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                className="pt-8"
+              >
+                <h3 className="text-xl font-bold mb-6 flex items-center">
+                  <ExternalLink size={24} className="mr-2 text-neon-cyan" /> 
+                  Interface Preview
+                </h3>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                  {project.previewImages.map((img, idx) => (
+                    <div key={idx} className="rounded-xl overflow-hidden border border-white/10 hover:border-neon-cyan/50 transition-colors group">
+                      <Image 
+                        src={img} 
+                        alt={`Preview ${idx + 1}`} 
+                        width={1200}
+                        height={800}
+                        className="w-full h-auto object-contain group-hover:scale-105 transition-transform duration-500" 
+                      />
+                    </div>
+                  ))}
+                </div>
+              </motion.div>
+            )}
           </div>
 
         </div>

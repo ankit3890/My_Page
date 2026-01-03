@@ -30,8 +30,20 @@ export default function Hero() {
 
   return (
     <section ref={containerRef} className="relative h-screen w-full flex items-center justify-center overflow-hidden bg-black">
+      {/* Video Background */}
+      <div className="absolute inset-0 w-full h-full z-0">
+         <video 
+           src="/images/renders/potal.mov" 
+           autoPlay 
+           muted 
+           loop 
+           playsInline 
+           className="object-cover w-full h-full opacity-50"
+         />
+      </div>
+
       {/* Animated Background Gradient */}
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-neutral-900 via-black to-black opacity-80" />
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-neutral-900/80 via-black/80 to-black opacity-80 z-1" />
       
       {/* Floating Elements / Glows */}
       <motion.div 

@@ -67,7 +67,18 @@ export default function Gallery() {
               >
                 <Link href={`/work/${item.id}`}>
                   <div className="relative aspect-video w-full cursor-pointer">
-                    <Image src={item.src} alt={item.title} fill className="object-cover group-hover:scale-105 transition-transform duration-700" />
+                    {(item as any).heroVideo ? (
+                      <video 
+                        src={(item as any).heroVideo} 
+                        autoPlay 
+                        muted 
+                        loop 
+                        playsInline 
+                        className="object-cover w-full h-full group-hover:scale-105 transition-transform duration-700" 
+                      />
+                    ) : (
+                      <Image src={item.src} alt={item.title} fill className="object-cover group-hover:scale-105 transition-transform duration-700" />
+                    )}
                     <div className="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center flex-col gap-2">
                       <span className="text-white text-sm font-bold tracking-widest uppercase">View Project</span>
                       <ArrowRight className="text-neon-cyan" size={20} />
