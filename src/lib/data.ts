@@ -80,7 +80,7 @@ export const galleryItems: ProjectDetail[] = [
     software: ["Electron", "React", "OpenAI API", "LocalDB"],
     year: "2024",
     github: "https://github.com/ankit3890/AI-Floating-Assistant",
-    demoLink: "https://drive.google.com/file/d/1jmpThW9nmfjbsv0Lpx6SFMOtRvN3B-Lo/view?usp=sharing",
+    demoLink: "https://github.com/ankit3890/AI-Floating-Assistant/releases/tag/v1.0.0",
     demoLabel: "Download App",
     previewImages: [
       "/images/ai-assistant/preview-1.png",
